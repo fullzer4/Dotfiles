@@ -11,7 +11,8 @@ use crate::app::App;
 pub fn render<B: Backend>(_app: &mut App, frame: &mut Frame<'_, B>) {
     frame.render_widget(
         Paragraph::new(format!(
-            "Press `Esc`, `Ctrl-C` or `q` to stop running.\n\
+            "🚀 Welcome to fullbuilder 🚀\n\
+                Press `Esc`, `Ctrl-C` or `q` to stop running.\n\
                 "
         ))
         .block(
@@ -24,5 +25,5 @@ pub fn render<B: Backend>(_app: &mut App, frame: &mut Frame<'_, B>) {
         .style(Style::default().fg(Color::Rgb(255, 0, 0)).bg(Color::Reset))
         .alignment(Alignment::Center),
         frame.size(),
-    )
+    );
 }
