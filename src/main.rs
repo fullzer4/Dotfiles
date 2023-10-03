@@ -1,27 +1,23 @@
-use ex::app::{App, AppResult};
-use ex::event::{Event, EventHandler};
-use ex::handler::handle_key_events;
-use ex::tui::Tui;
+use fullbuilder::app::{App, AppResult};
+use fullbuilder::event::{Event, EventHandler};
+use fullbuilder::handler::handle_key_events;
+use fullbuilder::tui::Tui;
 use std::io;
 use tui::backend::CrosstermBackend;
 use tui::Terminal;
 
 fn main() -> AppResult<()> {
-    // Create an application.
     let mut app = App::new();
 
-    // Initialize the terminal user interface.
     let backend = CrosstermBackend::new(io::stderr());
     let terminal = Terminal::new(backend)?;
     let events = EventHandler::new(250);
     let mut tui = Tui::new(terminal, events);
     tui.init()?;
 
-    // Start the main loop.
     while app.running {
-        // Render the user interface.
         tui.draw(&mut app)?;
-        // Handle events.
+      
         match tui.events.next()? {
             Event::Tick => app.tick(),
             Event::Key(key_event) => handle_key_events(key_event, &mut app)?,
@@ -30,7 +26,6 @@ fn main() -> AppResult<()> {
         }
     }
 
-    // Exit the user interface.
     tui.exit()?;
     Ok(())
 }

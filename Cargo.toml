@@ -1,5 +1,5 @@
 [package]
-name = "ex"
+name = "fullbuilder"
 version = "0.1.0"
 authors = ["fullzer4 <gabrielpelizzaro@gmail.com>"]
 license = "MIT"
