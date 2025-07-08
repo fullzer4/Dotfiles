@@ -1,36 +1,47 @@
-local keymap = vim.keymap
-
+local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Naevagacao de pastas
-keymap.set("n", "<leader>m", ":NvimTreeFocus<CR>", opts) -- Mover cursor para pasta
-keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>", opts) -- Abrir / Fechar pasta
+keymap("v", "<C-c>", '"+y', opts)
+keymap({"n", "v"}, "<C-v>", '"+p', opts)
+keymap("i", "<C-v>", '<C-r>+', opts)
+keymap("n", "<C-a>", "ggVG", opts)
 
--- Navegacao entre janelas
-keymap.set("n", "<C-h>", "<C-w>h", opts) -- Mover para esquerda
-keymap.set("n", "<C-j>", "<C-w>j", opts) -- Mover para baixo
-keymap.set("n", "<C-k>", "<C-w>k", opts) -- Mover para cima
-keymap.set("n", "<C-l>", "<C-w>l", opts) -- Mover para direita
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Gerenciamneto de janelas
-keymap.set("n", "<leader>sv", ":vsplit<CR>", opts) -- dividir verticalmente
-keymap.set("n", "<leader>sh", ":split<CR>", opts) -- dividir horizontalmente
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", opts) -- Maximizar ou minimizar
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Identacao
-keymap.set("v", "<", "<gv")
-keymap.set("v", ">", ">gv")
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
--- Comentarios
-vim.api.nvim_set_keymap("n", "<C-c>", "gcc", { noremap = false })
-vim.api.nvim_set_keymap("v", "<C-c>", "gcc", { noremap = false })
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
 
--- Harpoon
--- keymap.set("n", "<leader>a", function() harpoon:list():append() end)
--- keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
--- keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
--- keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
--- keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
--- keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
--- keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
--- keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+
+keymap("n", "<leader>gg", ":LazyGit<CR>", opts)
+keymap("n", "<leader>gj", ":lua require('gitsigns').next_hunk()<CR>", opts)
+keymap("n", "<leader>gk", ":lua require('gitsigns').prev_hunk()<CR>", opts)
+keymap("n", "<leader>gp", ":lua require('gitsigns').preview_hunk()<CR>", opts)
+
+keymap("n", "gl", vim.diagnostic.open_float, { desc = "Mostrar diagnóstico na linha" })
+keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Diagnóstico anterior" })
+keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Próximo diagnóstico" })
+
+keymap("n", "gd", vim.lsp.buf.definition, { desc = "Ir para definição" })
+keymap("n", "gr", vim.lsp.buf.references, { desc = "Ver referências" })
+keymap("n", "K", vim.lsp.buf.hover, { desc = "Mostrar documentação" })
+keymap("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+keymap("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Renomear símbolo" })
