@@ -71,43 +71,35 @@ in
         "$mod, L, exec, hyprlock"
         "$mod, C, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
         
-        # Screenshots (Omarchy-style)
         ", Print, exec, hyprshot -m output"
         "$mod, Print, exec, hyprshot -m window"
         "$mod SHIFT, Print, exec, hyprshot -m region"
         
-        # Color picker
         "$mod SHIFT, C, exec, hyprpicker -a"
         
-        # Media controls
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioStop, exec, playerctl stop"
         
-        # Volume (with SwayOSD)
         ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
         ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
         ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
         
-        # Brightness (with SwayOSD)
         ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         
-        # Focus navigation
         "$mod, left,  movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up,    movefocus, u"
         "$mod, down,  movefocus, d"
         
-        # Workspaces
         "$mod, 1, workspace, 1" "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3" "$mod, 4, workspace, 4"
         "$mod, 5, workspace, 5" "$mod, 6, workspace, 6"
         "$mod, 7, workspace, 7" "$mod, 8, workspace, 8"
         "$mod, 9, workspace, 9" "$mod, 0, workspace, 10"
         
-        # Move to workspace
         "$mod SHIFT, 1, movetoworkspace, 1"
         "$mod SHIFT, 2, movetoworkspace, 2"
         "$mod SHIFT, 3, movetoworkspace, 3"
@@ -119,7 +111,6 @@ in
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
         
-        # Mouse workspace switching
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up,   workspace, e-1"
       ];

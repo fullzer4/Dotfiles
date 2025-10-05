@@ -31,23 +31,23 @@
     waybar
     
     # Hyprland Ecosystem (Omarchy-style)
-    hyprlock         # Lock screen
-    hypridle         # Idle management
-    hyprpicker       # Color picker
-    hyprshot         # Screenshot tool
-    hyprsunset       # Night light / color temperature
-    
+    hyprlock
+    hypridle
+    hyprpicker
+    hyprshot
+    hyprsunset
+
     # Audio & OSD
-    swayosd          # On-screen display for volume/brightness
+    swayosd
     wireplumber
     pamixer
-    brightnessctl    # Brightness control
-    
+    brightnessctl
+
     # Background & Session
-    swaybg           # Wallpaper daemon (alternative to hyprpaper)
+    swaybg
     
     # Clipboard & Selection
-    cliphist         # Clipboard manager
+    cliphist
     
     # Fonts & Icons
     nerd-fonts.jetbrains-mono

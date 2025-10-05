@@ -36,12 +36,10 @@
     };
   };
   
-  # SwayOSD - On-screen display for volume/brightness
   services.swayosd = {
     enable = true;
     topMargin = 0.9;
   };
   
-  # Cliphist - Clipboard manager
   services.cliphist.enable = true;
 }

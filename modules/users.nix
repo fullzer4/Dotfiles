@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Definir Zsh como shell padrão do sistema
   programs.zsh.enable = true;
   
   users.users.fullzer4 = {

@@ -1,9 +1,6 @@
 { config, lib, ... }:
 
 {
-  # Definições de cores centralizadas para reutilização
-  # Estas cores podem ser importadas por outros módulos
-  
   _module.args.colors = {
     accent    = "#4E9AF1";
     accentAlt = "#6DB3F9";

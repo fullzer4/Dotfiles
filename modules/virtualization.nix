@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Load KVM module for Intel CPUs at boot
   boot.kernelModules = [ "kvm-intel" ];
 
   virtualisation.docker = {

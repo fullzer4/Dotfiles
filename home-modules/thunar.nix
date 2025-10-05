@@ -1,16 +1,14 @@
 { config, pkgs, colors, ... }:
 
 {
-  # Configuração do Thunar com tema moderno
   home.packages = with pkgs; [
     xfce.thunar
     xfce.thunar-volman
     xfce.thunar-archive-plugin
-    xfce.tumbler  # Para thumbnails
-    xfce.xfconf   # Para configurações
+    xfce.tumbler
+    xfce.xfconf
   ];
 
-  # Configurações do Thunar via xfconf
   xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''
     <?xml version="1.0" encoding="UTF-8"?>
     <channel name="thunar" version="1.0">
@@ -35,23 +33,19 @@
     </channel>
   '';
 
-  # GTK3 CSS customizado para o Thunar
   xdg.configFile."gtk-3.0/gtk.css".text = ''
     /* Thunar customizado - tema escuro moderno */
     
-    /* Cor de fundo principal */
     .thunar window {
       background-color: ${colors.bg};
       color: ${colors.fg};
     }
     
-    /* Barra lateral */
     .thunar .sidebar {
       background-color: ${colors.bgAlt};
       border-right: 1px solid rgba(78, 154, 241, 0.2);
     }
     
-    /* Itens da barra lateral */
     .thunar .sidebar row {
       padding: 8px;
       border-radius: 6px;
@@ -67,7 +61,6 @@
       color: white;
     }
     
-    /* Barra de ferramentas */
     .thunar toolbar {
       background-color: ${colors.bgAlt};
       border-bottom: 1px solid rgba(78, 154, 241, 0.2);
@@ -89,7 +82,6 @@
       background-color: ${colors.accent};
     }
     
-    /* Barra de localização */
     .thunar .path-bar button {
       border-radius: 6px;
       margin: 2px;
@@ -103,7 +95,6 @@
       border-color: ${colors.accent};
     }
     
-    /* Área de visualização de arquivos */
     .thunar iconview {
       background-color: ${colors.bg};
       padding: 12px;
@@ -114,7 +105,6 @@
       border-radius: 8px;
     }
     
-    /* Entradas de texto */
     .thunar entry {
       background-color: ${colors.bgAlt};
       color: ${colors.fg};
@@ -128,7 +118,6 @@
       box-shadow: 0 0 0 2px rgba(78, 154, 241, 0.2);
     }
     
-    /* Scrollbar */
     .thunar scrollbar {
       background-color: transparent;
     }
@@ -144,7 +133,6 @@
       background-color: rgba(78, 154, 241, 0.5);
     }
     
-    /* Menu de contexto */
     .thunar menu {
       background-color: ${colors.bgAlt};
       border: 1px solid rgba(78, 154, 241, 0.3);
@@ -161,20 +149,17 @@
       background-color: rgba(78, 154, 241, 0.2);
     }
     
-    /* Barra de status */
     .thunar statusbar {
       background-color: ${colors.bgAlt};
       border-top: 1px solid rgba(78, 154, 241, 0.2);
       padding: 4px 8px;
     }
     
-    /* Headers e títulos */
     .thunar headerbar {
       background-color: ${colors.bgAlt};
       border-bottom: 1px solid rgba(78, 154, 241, 0.2);
     }
     
-    /* Tooltips */
     .thunar tooltip {
       background-color: ${colors.bgAlt};
       color: ${colors.fg};
@@ -183,7 +168,6 @@
     }
   '';
 
-  # Tema GTK escuro
   gtk = {
     enable = true;
     theme = {
